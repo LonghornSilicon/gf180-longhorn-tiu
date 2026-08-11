@@ -71,16 +71,12 @@ CLOCK_PERIOD: 40 # 25 MHz
 PL_RESIZER_HOLD_SLACK_MARGIN: 0.35
 GRT_RESIZER_HOLD_SLACK_MARGIN: 0.3
 
-# Slow-corner (ss_125C_4v50) cleanup: the only residual setup/slew/cap
-# violations are in the slow corner and are driven by slow transitions on
-# high-fanout nets (the clock is a relaxed 25 MHz, so this is not logic depth).
-# Tightening the max-slew / max-cap repair targets forces more buffering, which
-# clears the slew/cap warnings and pulls the slow-corner setup back with them.
-# Also give the setup resizer a small margin so it buffers those nets.
-DESIGN_REPAIR_MAX_SLEW_PCT: 40
-DESIGN_REPAIR_MAX_CAP_PCT: 40
-PL_RESIZER_SETUP_SLACK_MARGIN: 0.10
-GRT_RESIZER_SETUP_SLACK_MARGIN: 0.05
+# Note on the slow corner: the nominal tt_025C_5v00 corner is timing-clean, but
+# ss_125C_4v50 reports residual setup/slew warnings (non-fatal, precheck-passing).
+# These are the GF180 slow-corner library/IO floor, not high-fanout transitions:
+# tightening the slew/cap repair targets and adding a setup margin was tried and
+# did NOT close them (it only added buffers and spread max-cap to more corners),
+# so the design is intentionally kept minimal and the ss-corner tail is accepted.
 
 # Increase density for more 
 # logic on your die
