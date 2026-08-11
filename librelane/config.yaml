@@ -71,6 +71,17 @@ CLOCK_PERIOD: 40 # 25 MHz
 PL_RESIZER_HOLD_SLACK_MARGIN: 0.35
 GRT_RESIZER_HOLD_SLACK_MARGIN: 0.3
 
+# Slow-corner (ss_125C_4v50) cleanup: the only residual setup/slew/cap
+# violations are in the slow corner and are driven by slow transitions on
+# high-fanout nets (the clock is a relaxed 25 MHz, so this is not logic depth).
+# Tightening the max-slew / max-cap repair targets forces more buffering, which
+# clears the slew/cap warnings and pulls the slow-corner setup back with them.
+# Also give the setup resizer a small margin so it buffers those nets.
+DESIGN_REPAIR_MAX_SLEW_PCT: 40
+DESIGN_REPAIR_MAX_CAP_PCT: 40
+PL_RESIZER_SETUP_SLACK_MARGIN: 0.10
+GRT_RESIZER_SETUP_SLACK_MARGIN: 0.05
+
 # Increase density for more 
 # logic on your die
 PL_TARGET_DENSITY_PCT: 35
