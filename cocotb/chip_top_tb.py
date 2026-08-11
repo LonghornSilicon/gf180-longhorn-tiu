@@ -69,9 +69,12 @@ async def test_tiu(dut):
     nb = len(dut.bidir_PAD)
 
     async def do_op(op, slot=0):
+        # Drive inputs on the falling edge so they are stable before the next
+        # rising edge samples them (driving at the rising edge races the sample
+        # and can drop the very first op).
+        await FallingEdge(dut.clk_PAD)
         dut.input_PAD.value = ((slot & 0x3) << 2) | (op & 0x3)   # 1=ACC 2=LOAD 3=EVICT
-        await ClockCycles(dut.clk_PAD, 1)
-        dut.input_PAD.value = 0
+        await RisingEdge(dut.clk_PAD)
 
     def obit(s, i):                            # bit i (from LSB) of the MSB-first string
         return s[nb - 1 - i]
@@ -80,10 +83,11 @@ async def test_tiu(dut):
     for s in range(4):
         await do_op(2, s)                      # LOAD slot s
 
-    # evict: all scores equal 0 -> lowest index wins -> slot 0
-    dut.input_PAD.value = 3                     # EVICT
-    await ClockCycles(dut.clk_PAD, 1)
-    dut.input_PAD.value = 0
+    # evict: all four scores equal 0 -> the serialized argmin seeds on slot 0 and
+    # keeps it under a strict less-than, so the lowest index wins -> slot 0.
+    await do_op(3)                             # EVICT (pulse evict_req for one cycle)
+    await FallingEdge(dut.clk_PAD)
+    dut.input_PAD.value = 0                     # back to NOP before the FSM returns to IDLE
 
     victim = None
     for _ in range(12):
