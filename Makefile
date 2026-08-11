@@ -44,7 +44,9 @@ else
 endif
 
 AVAILABLE_SLOTS = 1x1 0p5x1 1x0p5 0p5x0p5
-DEFAULT_SLOT = 1x1
+# Longhorn TIU is pure logic (~14k um^2) with no SRAM, so the smallest slot is
+# the right target: 4 input pads + 38 bidir + 4 analog matches the pin budget.
+DEFAULT_SLOT = 0p5x0p5
 
 # Slot can be any of AVAILABLE_SLOTS
 SLOT ?= $(DEFAULT_SLOT)
