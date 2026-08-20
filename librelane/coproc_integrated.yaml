@@ -1,0 +1,60 @@
+# coproc_integrated.yaml — harden the KVE+TIU coprocessor into the Chipathon-
+# provided padframe DEF (shared-reticle integration / trial run).
+#
+# The integration lead returns a project DEF (padframe + our pin placement, sized
+# from info.yaml). FP_DEF_TEMPLATE makes LibreLane use that DEF's die area + pin
+# locations, and maps coproc_top's ports to the DEF pins by name.
+#
+# DEF-DAY procedure (see docs/INTEGRATION.md):
+#   1. Drop the org DEF at def/<name>.def
+#   2. Point FP_DEF_TEMPLATE below at it
+#   3. Verify pin names/power nets match coproc_top.sv (adjust if needed)
+#   4. Harden:  make coproc-integrated   (or the librelane cmd in the Makefile)
+#
+# NOTE: values marked TODO(DEF-day) can only be finalized once the DEF is in hand.
+
+meta:
+  version: 3
+  flow: Classic
+
+DESIGN_NAME: coproc_top
+PDK: gf180mcuD
+USE_SLANG: true
+
+VERILOG_FILES:
+  - dir::../src/coproc_top.sv             # integration top (scalar ports = info.yaml pins)
+  - dir::../src/lambda_kv_coproc.sv
+  - dir::../src/spi_loader.sv
+  - dir::../src/precision_controller.sv
+  - dir::../src/token_importance_unit.sv
+  - dir::../src/wht_unit_syn.sv
+  - dir::../src/fp16_addsub_syn.sv
+  - dir::../src/cq_units_syn.sv
+  - dir::../src/cq_value_path_wht_syn.sv
+
+SYNTH_PARAMETERS:
+  - D=2
+  - L=2
+
+CLOCK_PORT: clk
+CLOCK_NET: clk
+CLOCK_PERIOD: 300     # ns — closes the ~285 ns combinational CQ-3 value path
+
+# --- Org padframe DEF: die area + pin placement are taken from this template. ---
+# TODO(DEF-day): replace the placeholder path with the delivered DEF.
+FP_DEF_TEMPLATE: dir::../def/PADFRAME_TEMPLATE.def
+FP_SIZING: absolute
+
+# Power nets — must match the DEF's power pin names.
+# TODO(DEF-day): confirm the DEF uses vdd/vss (lowercase, per info.yaml) vs VDD/VSS.
+VDD_NETS:
+  - vdd
+GND_NETS:
+  - vss
+
+# The DEF template fixes pin locations, so no pin auto-placement.
+# TODO(DEF-day): if the DEF already carries PDN rings/straps, keep PDN minimal;
+# otherwise add a PDN_CFG. Confirm whether the padframe or our core owns the ring.
+GRT_ALLOW_CONGESTION: true
+RUN_POST_GRT_DESIGN_REPAIR: true
+RUN_POST_GRT_RESIZER_TIMING: true
