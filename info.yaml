@@ -7,17 +7,22 @@
 # please be sure that the branch contains the data you want to submit.
 
 project:
-  title: "Longhorn TIU"
+  title: "Lambda KV-Cache Coprocessor (KVE + TIU)"
   team: "Longhorn Silicon (A71)"
   discord: "changa"
-  description: "H2O KV-cache eviction core for on-device LLM inference — RTL to GDS by an LLM agent (Track D)."
+  description: "SPI-streamed KV-cache value compression + token-importance/eviction coprocessor — RTL to GDS by an LLM agent (Track D)."
   lvs_config: "lvs_config.json"
 
-# Functional pin map for the Token Importance Unit (N_SLOTS = 4).
-#   op[1:0]   00=NOP 01=ACC 10=LOAD 11=EVICT
-#   slot[1:0] target slot 0..3
-#   weight[7:0] per-token attention-mass increment (ACC)  -> bidir pads used as INPUTS
-#   result[7:0] = {occupancy[3:0], busy, evict_valid, evict_slot[1:0]} -> bidir pads used as OUTPUTS
+# Core-only preintegration block (no pads). The org generates the padframe from
+# this pin list + the core area and returns a DEF. Everything streams over a
+# 4-wire SPI slave, so the footprint is small: 6 functional pins + 4 status pins.
+# No output-only digital pad exists in the GF180 IO library, so spi_miso and the
+# obs status bits are declared bidirectional (used as outputs).
+#
+#   Host protocol (SPI mode 0, MSB-first): CMD {WRITE/READ/START/STATUS}, ADDR[15:8],
+#   ADDR[7:0], DATA... The host writes value tokens (V) + attention masses (W),
+#   pulses START, polls STATUS, then reads back CODES/SCALE/VHAT + the decision byte
+#   (evict slot, keep-tier bitmap, precision gate).
 pins:
   # --- dedicated control ---
   - name: clk
@@ -25,50 +30,24 @@ pins:
   - name: rst_n
     io_type: input_cmos
 
-  # --- command: op[1:0], slot[1:0] ---
-  - name: op0
+  # --- 4-wire SPI slave ---
+  - name: spi_sclk
     io_type: input_cmos
-  - name: op1
+  - name: spi_cs_n
     io_type: input_cmos
-  - name: slot0
+  - name: spi_mosi
     io_type: input_cmos
-  - name: slot1
-    io_type: input_cmos
+  - name: spi_miso
+    io_type: bidirectional      # output-only in practice
 
-  # --- weight[7:0] in (bidirectional pads, driven as inputs) ---
-  - name: weight0
+  # --- 4-bit status observation = {busy, done, err, gate_fp16} ---
+  - name: obs0                   # busy
     io_type: bidirectional
-  - name: weight1
+  - name: obs1                   # done
     io_type: bidirectional
-  - name: weight2
+  - name: obs2                   # err
     io_type: bidirectional
-  - name: weight3
-    io_type: bidirectional
-  - name: weight4
-    io_type: bidirectional
-  - name: weight5
-    io_type: bidirectional
-  - name: weight6
-    io_type: bidirectional
-  - name: weight7
-    io_type: bidirectional
-
-  # --- result[7:0] out (bidirectional pads, driven as outputs) ---
-  - name: result0        # evict_slot[0]
-    io_type: bidirectional
-  - name: result1        # evict_slot[1]
-    io_type: bidirectional
-  - name: result2        # evict_valid
-    io_type: bidirectional
-  - name: result3        # busy
-    io_type: bidirectional
-  - name: result4        # occupancy[0]
-    io_type: bidirectional
-  - name: result5        # occupancy[1]
-    io_type: bidirectional
-  - name: result6        # occupancy[2]
-    io_type: bidirectional
-  - name: result7        # occupancy[3]
+  - name: obs3                   # gate_fp16
     io_type: bidirectional
 
   # --- power ---

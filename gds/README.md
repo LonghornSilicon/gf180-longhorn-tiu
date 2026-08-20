@@ -1,27 +1,21 @@
-# GF180MCU GDSII — Longhorn TIU
+# GF180MCU GDSII — Lambda KV-Cache Coprocessor (KVE + TIU)
 
-`chip_top.gds.gz` is the hardened GDSII for the Longhorn Token Importance Unit
-(H2O heavy-hitter KV-cache eviction core) on GlobalFoundries **GF180MCU (180 nm)**,
-produced by the LibreLane `Chip` flow in CI. Gunzip before use:
-
-```bash
-gunzip -k chip_top.gds.gz   # -> chip_top.gds (~57 MB)
-```
+`lambda_kv_coproc.gds` is the hardened, **core-only** GDSII for the Lambda KV-cache
+coprocessor (KVE value compression + TIU token-importance/eviction + precision gate)
+on GlobalFoundries **GF180MCU (180 nm)**, produced by the LibreLane `Classic` flow
+(`librelane/coproc_core.yaml`). This is the **pre-integration** block — no pads, no
+padring; the Chipathon integration team generates the padframe from `info.yaml` and
+returns a DEF to harden this core into.
 
 | Property | Value |
 |---|---|
 | PDK / node | gf180mcuD, 180 nm (5 V, `gf180mcu_fd_sc_mcu7t5v0`) |
-| Slot | `0p5x0p5` — die 1936 × 2531 µm, core 1052 × 1647 µm |
-| Top cell | `chip_top` (padring) wrapping `chip_core` → `token_importance_unit` (N_SLOTS = 4) |
-| Clock | 25 MHz |
-| Power | 2.60 mW |
-| Timing | hold clean; nominal `tt_025C_5v00` corner clean |
-| Verification | cocotb pad-level sim + gate-level sim pass in CI |
+| Top cell | `lambda_kv_coproc` (core-only, no padring) |
+| Die area | 503.0 × 520.9 µm (0.262 mm²) |
+| Std cells | 7,152 (~63% util) |
+| Clock | 300 ns period; setup +93 ns / hold +0.77 ns (clean) |
+| Signoff | Magic DRC, KLayout DRC, routing DRC, LVS, antenna, XOR — all 0 |
+| Host interface | 4-wire SPI slave (see `info.yaml`) |
 
-Provenance: built from commit history on `master`; regenerated on every push by
-`.github/workflows/ci.yml` (`make sim` → `make librelane-condensed` → `make sim-gl`).
-Layout render: [`../docs/chip_top_layout.png`](../docs/chip_top_layout.png).
-
-Known tail: the slow corner `ss_125C_4v50` reports non-fatal setup/slew/cap
-warnings (GF180 slow-corner library/IO floor, precheck-passing) — see the note in
-`librelane/config.yaml`.
+Verification: self-checking SPI functional test (`src/tb_coproc_spi.sv`) — all checks
+pass; cross-block RTL cosim on real Qwen vectors — all blocks pass.

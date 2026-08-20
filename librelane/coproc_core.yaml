@@ -1,0 +1,62 @@
+# coproc_core.yaml — CORE-ONLY hardening of the Lambda KV-cache coprocessor
+# (scope B: KVE + TIU + precision gate; Phase-2 MatE OFF) for the Chipathon 2026
+# shared-reticle integration.
+#
+# NO padring / seal ring / chip_top. The org generates the padframe from info.yaml
+# and returns a DEF; this produces the preintegration macro GDS + its area.
+#
+# Run (docker):
+#   docker run --rm -e HOME=/tmp --user "$(id -u):$(id -g)" \
+#     -v /home/chaithu/lhs_fork:/work -w /work ghcr.io/librelane/librelane:3.0.5 \
+#     librelane librelane/coproc_core.yaml --pdk gf180mcuD \
+#       --pdk-root /work/gf180mcu --manual-pdk --save-views-to /work/final_core
+
+meta:
+  version: 3
+  flow: Classic
+
+DESIGN_NAME: lambda_kv_coproc
+PDK: gf180mcuD
+
+# Better SystemVerilog elaboration (the ACU generate blocks, packed structs).
+USE_SLANG: true
+
+VERILOG_FILES:
+  - dir::../src/lambda_kv_coproc.sv       # coproc top + FSM
+  - dir::../src/spi_loader.sv             # 4-wire SPI host loader
+  - dir::../src/precision_controller.sv   # ACU precision gate
+  - dir::../src/token_importance_unit.sv  # TIU H2O importance
+  # KVE value path (synthesizable CQ-3, no `real`, bit-exact):
+  - dir::../src/wht_unit_syn.sv
+  - dir::../src/fp16_addsub_syn.sv
+  - dir::../src/cq_units_syn.sv
+  - dir::../src/cq_value_path_wht_syn.sv
+  # (Phase-2 MatE mate_pv_fp16.sv + wht_inverse_out_syn.sv intentionally omitted;
+  #  re-add with LAMBDA_PHASE2_MATE to bring the P·V datapath back.)
+
+# Workshop tile sizing of the coproc.
+SYNTH_PARAMETERS:
+  - D=2               # value channels / token (WHT dim, power of two)
+  - L=2               # cache slots / tokens per compress step
+
+CLOCK_PORT: clk
+CLOCK_NET: clk
+CLOCK_PERIOD: 300     # ns — closes the ~285 ns combinational CQ-3 value path on GF180
+
+# Integration macro (no top-level core ring; org places it into the padframe DEF).
+FP_SIZING: relative
+FP_CORE_UTIL: 40
+PL_TARGET_DENSITY_PCT: 50
+DESIGN_IS_CORE: false
+
+IO_DELAY_CONSTRAINT: 2
+CLOCK_UNCERTAINTY_CONSTRAINT: 0.1
+DESIGN_REPAIR_MAX_CAP_PCT: 60
+GRT_DESIGN_REPAIR_MAX_CAP_PCT: 60
+GRT_DESIGN_REPAIR_MAX_WIRE_LENGTH: 150
+CTS_CLK_MAX_WIRE_LENGTH: 100
+PL_RESIZER_HOLD_SLACK_MARGIN: 0.8
+GRT_RESIZER_HOLD_SLACK_MARGIN: 0.8
+RUN_POST_GRT_DESIGN_REPAIR: true
+RUN_POST_GRT_RESIZER_TIMING: true
+GRT_ALLOW_CONGESTION: true

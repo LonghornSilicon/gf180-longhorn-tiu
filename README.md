@@ -1,4 +1,23 @@
-# gf180mcu Project Template
+# Lambda KV-Cache Coprocessor (KVE + TIU) — SSCS Chipathon 2026, Team A71
+
+**Track D (AI/LLM for circuits) · Longhorn Silicon · GF180MCU shared reticle**
+
+**Current submission:** a **core-only** KV-cache coprocessor — KVE value compression +
+TIU H2O token-importance/eviction + per-tile precision gate — that the host drives over
+a **4-wire SPI slave**. Pins are declared in [`info.yaml`](info.yaml); the hardened,
+DRC/LVS-clean pre-integration GDS is [`gds/lambda_kv_coproc.gds`](gds/lambda_kv_coproc.gds)
+(503 × 521 µm, 0.262 mm²). Per the Chipathon integration flow, the org generates the
+padframe from `info.yaml` + the core area and returns a DEF to harden this core into.
+
+Harden the core with `librelane/coproc_core.yaml`. Functional proof:
+`src/tb_coproc_spi.sv` (self-checking SPI test). The earlier standalone TIU
+(`token_importance_unit.sv`, wafer.space `0p5x0p5` padframe) is superseded by this
+integrated KVE+TIU coprocessor.
+
+---
+
+<details>
+<summary>Original wafer.space gf180mcu project-template instructions</summary>
 
 Project template for wafer.space MPW runs using the gf180mcu PDK.
 
@@ -138,3 +157,5 @@ To check whether your design is suitable for manufacturing, run the [gf180mcu-pr
 ## Longhorn TIU (this fork)
 
 GF180MCU port of the Token Importance Unit (H2O KV-cache eviction core) for SSCS Chipathon 2026, Track D. The block lives in `src/chip_core.sv` (instantiates `token_importance_unit.sv`); pinout and design are in the [tt-longhorn-tiu](https://github.com/LonghornSilicon/tt-longhorn-tiu) repo (Sky130 sibling).
+
+</details>
