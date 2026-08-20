@@ -4,6 +4,7 @@ gf180mcu/
 gf180_drc.lyrdb
 sim_build/
 final/
+final_core/
 img/
 *.lyrdb
 generated_defines.svh

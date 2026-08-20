@@ -84,41 +84,31 @@ jobs:
       - name: Clone the PDK
         run: |
           nix develop --command make clone-pdk
-      - name: Run RTL simulation
+      - name: Run RTL simulation (SPI functional test)
         run: |
-          nix develop --command make sim
-          # cocotb also returns 0 upon failure
-          # check the simulation results
-          ! grep failure cocotb/sim_build/results.xml
-      - name: Implement the Chip
+          nix develop --command make sim-coproc
+      - name: Harden the coprocessor core
         if: success() || failure()
         run: |
-          nix develop --command make librelane-condensed
+          nix develop --command make coproc
       - name: Create summary
         if: success() || failure()
         run: |
           echo "# Manufacturability" >> $GITHUB_STEP_SUMMARY
-          cat librelane/runs/*/*-misc-reportmanufacturability/manufacturability.rpt >> $GITHUB_STEP_SUMMARY
+          cat librelane/runs/*/*-misc-reportmanufacturability/manufacturability.rpt >> $GITHUB_STEP_SUMMARY || true
       - name: Print the hash
         if: success() || failure()
         run: |
-          shasum final/gds/*
+          shasum final_core/gds/* || true
       - name: Upload GDS
         if: success() || failure()
         uses: actions/upload-artifact@v7
         with:
           name: ${{ matrix.slot }}_${{ matrix.domain }}_gds
-          path: final/gds/*
+          path: final_core/gds/*
       - name: Upload image
         if: success() || failure()
         uses: actions/upload-artifact@v7
         with:
           name: ${{ matrix.slot }}_${{ matrix.domain }}_image
-          path: final/render/*.png
-      - name: Run GL simulation
-        if: success() || failure()
-        run: |
-          nix develop --command make sim-gl
-          # cocotb also returns 0 upon failure
-          # check the simulation results
-          ! grep failure cocotb/sim_build/results.xml
+          path: final_core/render/*.png

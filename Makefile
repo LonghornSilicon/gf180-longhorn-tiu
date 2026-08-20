@@ -135,3 +135,32 @@ sim-gl: clone-pdk defines ## Run gate-level simulation with cocotb (after copy-f
 sim-view: ## View simulation waveforms in GTKWave
 	gtkwave cocotb/sim_build/chip_top.fst
 .PHONY: sim-view
+
+# ---------------------------------------------------------------------------
+# Core-only KVE+TIU coprocessor (Chipathon shared-reticle preintegration).
+# No padring/chip_top — the org generates the padframe from info.yaml + area
+# and returns a DEF. This is the ACTIVE submission (see gds/lambda_kv_coproc.gds).
+# ---------------------------------------------------------------------------
+COPROC_TOP = lambda_kv_coproc
+# Scope B: KVE + TIU + precision gate. (Phase-2 mate_pv_fp16 / wht_inverse_out_syn
+# are guarded behind LAMBDA_PHASE2_MATE and intentionally omitted here.)
+COPROC_SRC = \
+	src/lambda_kv_coproc.sv \
+	src/spi_loader.sv \
+	src/precision_controller.sv \
+	src/token_importance_unit.sv \
+	src/wht_unit_syn.sv \
+	src/fp16_addsub_syn.sv \
+	src/cq_units_syn.sv \
+	src/cq_value_path_wht_syn.sv
+
+coproc: clone-pdk ## Harden the core-only KVE+TIU coprocessor (no pads)
+	librelane librelane/coproc_core.yaml ${LIBRELANE_OPTS} --save-views-to $(MAKEFILE_DIR)/final_core
+.PHONY: coproc
+
+sim-coproc: ## Run the self-checking SPI functional test (iverilog)
+	mkdir -p sim_build
+	iverilog -g2012 -s tb_coproc_spi -o sim_build/tb_coproc src/tb_coproc_spi.sv ${COPROC_SRC}
+	vvp sim_build/tb_coproc | tee sim_build/coproc_sim.log
+	@grep -q "ALL CHECKS PASS" sim_build/coproc_sim.log || (echo "SPI functional test FAILED" && exit 1)
+.PHONY: sim-coproc
