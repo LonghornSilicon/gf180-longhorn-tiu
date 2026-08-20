@@ -1,0 +1,78 @@
+# ----- ------ ----- ----- ------ ----- ----- ------ -----
+# SSCS Chipathon 2026 — project configuration
+# Team A71 · Longhorn Silicon · Track D (AI/LLM for circuits)
+# Schema: https://github.com/sscs-ose/sscs-chipathon-2026/blob/main/resources/info.yaml
+# ----- ------ ----- ----- ------ ----- ----- ------ -----
+# data will be pulled from the default branch of this repo.
+# please be sure that the branch contains the data you want to submit.
+
+project:
+  title: "Longhorn TIU"
+  team: "Longhorn Silicon (A71)"
+  discord: "changa"
+  description: "H2O KV-cache eviction core for on-device LLM inference — RTL to GDS by an LLM agent (Track D)."
+  lvs_config: "lvs_config.json"
+
+# Functional pin map for the Token Importance Unit (N_SLOTS = 4).
+#   op[1:0]   00=NOP 01=ACC 10=LOAD 11=EVICT
+#   slot[1:0] target slot 0..3
+#   weight[7:0] per-token attention-mass increment (ACC)  -> bidir pads used as INPUTS
+#   result[7:0] = {occupancy[3:0], busy, evict_valid, evict_slot[1:0]} -> bidir pads used as OUTPUTS
+pins:
+  # --- dedicated control ---
+  - name: clk
+    io_type: input_schmitt
+  - name: rst_n
+    io_type: input_cmos
+
+  # --- command: op[1:0], slot[1:0] ---
+  - name: op0
+    io_type: input_cmos
+  - name: op1
+    io_type: input_cmos
+  - name: slot0
+    io_type: input_cmos
+  - name: slot1
+    io_type: input_cmos
+
+  # --- weight[7:0] in (bidirectional pads, driven as inputs) ---
+  - name: weight0
+    io_type: bidirectional
+  - name: weight1
+    io_type: bidirectional
+  - name: weight2
+    io_type: bidirectional
+  - name: weight3
+    io_type: bidirectional
+  - name: weight4
+    io_type: bidirectional
+  - name: weight5
+    io_type: bidirectional
+  - name: weight6
+    io_type: bidirectional
+  - name: weight7
+    io_type: bidirectional
+
+  # --- result[7:0] out (bidirectional pads, driven as outputs) ---
+  - name: result0        # evict_slot[0]
+    io_type: bidirectional
+  - name: result1        # evict_slot[1]
+    io_type: bidirectional
+  - name: result2        # evict_valid
+    io_type: bidirectional
+  - name: result3        # busy
+    io_type: bidirectional
+  - name: result4        # occupancy[0]
+    io_type: bidirectional
+  - name: result5        # occupancy[1]
+    io_type: bidirectional
+  - name: result6        # occupancy[2]
+    io_type: bidirectional
+  - name: result7        # occupancy[3]
+    io_type: bidirectional
+
+  # --- power ---
+  - name: vdd
+    io_type: power
+  - name: vss
+    io_type: ground
