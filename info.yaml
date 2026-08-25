@@ -24,6 +24,14 @@ project:
 #   pulses START, polls STATUS, then reads back CODES/SCALE/VHAT + the decision byte
 #   (evict slot, keep-tier bitmap, precision gate).
 pins:
+  # PIN ORDER MATTERS. This block targets a Chipathon "BV" slot (1/8, 16 pins),
+  # whose first pin MUST be the chip-wide common ground. So VSS is pin 1. VDD is
+  # this block's separate (per-block) power and is placed last; the 6 functional
+  # + 4 status pins fill positions 2..11 (12 of the 16 BV slots used).
+  # --- chip-wide common ground (BV requires pin 1 = ground) ---
+  - name: VSS
+    io_type: ground
+
   # --- dedicated control ---
   - name: clk
     io_type: input_schmitt
@@ -50,8 +58,6 @@ pins:
   - name: obs3                   # gate_fp16
     io_type: bidirectional
 
-  # --- power ---
+  # --- per-block power (VSS common ground is pin 1, declared at the top) ---
   - name: VDD
     io_type: power
-  - name: VSS
-    io_type: ground
