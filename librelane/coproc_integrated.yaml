@@ -45,12 +45,13 @@ CLOCK_PERIOD: 300     # ns — closes the ~285 ns combinational CQ-3 value path
 FP_DEF_TEMPLATE: dir::../def/PADFRAME_TEMPLATE.def
 FP_SIZING: absolute
 
-# Power nets — must match the DEF's power pin names.
-# TODO(DEF-day): confirm the DEF uses vdd/vss (lowercase, per info.yaml) vs VDD/VSS.
+# Power nets — must match the DEF's power pin names. info.yaml declares VDD/VSS
+# (uppercase) and the core hardens with the gf180 default VDD/VSS labels, so the
+# padframe DEF power pins are VDD/VSS.
 VDD_NETS:
-  - vdd
+  - VDD
 GND_NETS:
-  - vss
+  - VSS
 
 # The DEF template fixes pin locations, so no pin auto-placement.
 # TODO(DEF-day): if the DEF already carries PDN rings/straps, keep PDN minimal;

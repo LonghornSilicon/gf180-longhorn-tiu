@@ -46,8 +46,13 @@ module lambda_kv_coproc #(
     input  wire                 spi_mosi,
     output wire                 spi_miso,
     // 4-bit debug/status observation (pin-frugal: one bidir pad each on the
-    // shared reticle) = {gate_fp16, err, done, busy}
-    output wire [3:0]           obs_out
+    // shared reticle). SCALAR ports so the hardened GDS carries text labels
+    // obs0..obs3 that match info.yaml character-for-character (Chipathon pin
+    // audit is by-name). Bit order: obs0=busy, obs1=done, obs2=err, obs3=gate_fp16.
+    output wire                 obs0,   // busy
+    output wire                 obs1,   // done
+    output wire                 obs2,   // err
+    output wire                 obs3    // gate_fp16
 );
     localparam integer IDXW = (D <= 1) ? 1 : $clog2(D);
     localparam integer SLW  = (L <= 1) ? 1 : $clog2(L);
@@ -362,8 +367,11 @@ module lambda_kv_coproc #(
     end
 
     // ---------------- observation outputs (4-bit status) -------------------
-    // {gate_fp16, err, done, busy} — one shared-reticle bidir pad each.
-    assign obs_out = {gate_fp16_r, err_r, done_r, busy_r};
+    // Scalar taps — one shared-reticle bidir pad each.
+    assign obs0 = busy_r;
+    assign obs1 = done_r;
+    assign obs2 = err_r;
+    assign obs3 = gate_fp16_r;
 
     // keep debug taps from being pruned
     logic _unused;

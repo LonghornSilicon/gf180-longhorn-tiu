@@ -51,7 +51,7 @@ pins:
     io_type: bidirectional
 
   # --- power ---
-  - name: vdd
+  - name: VDD
     io_type: power
-  - name: vss
+  - name: VSS
     io_type: ground

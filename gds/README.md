@@ -11,8 +11,8 @@ returns a DEF to harden this core into.
 |---|---|
 | PDK / node | gf180mcuD, 180 nm (5 V, `gf180mcu_fd_sc_mcu7t5v0`) |
 | Top cell | `lambda_kv_coproc` (core-only, no padring) |
-| Die area | 503.0 × 520.9 µm (0.262 mm²) |
-| Std cells | 7,152 (~63% util) |
+| Die area | 502.89 × 520.81 µm (0.262 mm²) |
+| Std cells | 7,080 (~62% util) |
 | Clock | 300 ns period; setup +93 ns / hold +0.77 ns (clean) |
 | Signoff | Magic DRC, KLayout DRC, routing DRC, LVS, antenna, XOR — all 0 |
 | Host interface | 4-wire SPI slave (see `info.yaml`) |

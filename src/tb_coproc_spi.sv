@@ -44,12 +44,13 @@ module tb_coproc_spi;
     // SPI host lines
     reg  spi_sclk = 1'b0, spi_cs_n = 1'b1, spi_mosi = 1'b0;
     wire spi_miso;
-    wire [3:0] obs_out;
+    wire obs0, obs1, obs2, obs3;   // busy, done, err, gate_fp16
 
     lambda_kv_coproc #(.D(D), .L(L), .ADDR_WIDTH(16)) dut (
         .clk(clk), .rst_n(rst_n),
         .spi_sclk(spi_sclk), .spi_cs_n(spi_cs_n), .spi_mosi(spi_mosi),
-        .spi_miso(spi_miso), .obs_out(obs_out));
+        .spi_miso(spi_miso),
+        .obs0(obs0), .obs1(obs1), .obs2(obs2), .obs3(obs3));
 
     integer errors = 0;
 
