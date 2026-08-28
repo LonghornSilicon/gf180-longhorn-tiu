@@ -1,0 +1,114 @@
+{
+  "project_size": {
+    "source_gds": "/Users/kanobailey/chipathon/2026/gds/A71/lambda_kv_coproc.gds",
+    "top_cell": "lambda_kv_coproc",
+    "layer": 0,
+    "datatype": 0,
+    "layout_dbu_microns": 0.001,
+    "rectangle_dbu": [
+      0,
+      0,
+      502890,
+      520810
+    ],
+    "width_microns": "502.89",
+    "height_microns": "520.81",
+    "top_cell_text": [
+      {
+        "text": "VDD",
+        "layer": 46,
+        "datatype": 10
+      },
+      {
+        "text": "VDD",
+        "layer": 46,
+        "datatype": 10
+      },
+      {
+        "text": "VDD",
+        "layer": 46,
+        "datatype": 10
+      },
+      {
+        "text": "VDD",
+        "layer": 46,
+        "datatype": 10
+      },
+      {
+        "text": "VSS",
+        "layer": 46,
+        "datatype": 10
+      },
+      {
+        "text": "VSS",
+        "layer": 46,
+        "datatype": 10
+      },
+      {
+        "text": "VSS",
+        "layer": 46,
+        "datatype": 10
+      },
+      {
+        "text": "VSS",
+        "layer": 46,
+        "datatype": 10
+      },
+      {
+        "text": "clk",
+        "layer": 42,
+        "datatype": 10
+      },
+      {
+        "text": "obs3",
+        "layer": 42,
+        "datatype": 10
+      },
+      {
+        "text": "spi_mosi",
+        "layer": 42,
+        "datatype": 10
+      },
+      {
+        "text": "obs0",
+        "layer": 36,
+        "datatype": 10
+      },
+      {
+        "text": "obs1",
+        "layer": 36,
+        "datatype": 10
+      },
+      {
+        "text": "obs2",
+        "layer": 36,
+        "datatype": 10
+      },
+      {
+        "text": "rst_n",
+        "layer": 36,
+        "datatype": 10
+      },
+      {
+        "text": "spi_cs_n",
+        "layer": 36,
+        "datatype": 10
+      },
+      {
+        "text": "spi_miso",
+        "layer": 36,
+        "datatype": 10
+      },
+      {
+        "text": "spi_sclk",
+        "layer": 36,
+        "datatype": 10
+      }
+    ]
+  },
+  "participant_pin_count": 12,
+  "selected_variants": [
+    "BV",
+    "BH"
+  ]
+}

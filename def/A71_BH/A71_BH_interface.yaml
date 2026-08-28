@@ -1,0 +1,1998 @@
+spec_blob_sha: 7398a4da36e4d6ad9f9b76c06813b073c9c0ed2f
+source_mapping: build/padframes/A71/project_defs/BH/A71_BH_pad_map.yaml
+source_padring_def: build/padframes/A71/project_defs/BH/A71_BH_padring.def
+variant: BH
+origin_microns:
+- '350'
+- '2035'
+origin_dbu:
+- 70000
+- 407000
+size_microns:
+- '1110'
+- '550'
+diearea_dbu:
+- 0
+- 0
+- 222000
+- 110000
+usable_area: 610500
+blockages: []
+routing_blockage_layers:
+- Metal1
+- Metal2
+- Metal3
+- Metal4
+- Metal5
+pins:
+- user_pin_name: VSS
+  default_project_pin: VSS
+  project_pin: VSS
+  cell_terminal: DVSS
+  padring_instance: W18
+  physical_pad_slot: W18
+  cell: gf180mcu_fd_io__dvss
+  direction: INOUT
+  use: GROUND
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 69800
+    - 428828
+    - 70000
+    - 430728
+    extended_top_level:
+    - 70000
+    - 428828
+    - 70200
+    - 430728
+    translated_user:
+    - 0
+    - 21828
+    - 200
+    - 23728
+  - routing_layer: Metal2
+    top_level:
+    - 69800
+    - 426198
+    - 70000
+    - 428248
+    extended_top_level:
+    - 70000
+    - 426198
+    - 70200
+    - 428248
+    translated_user:
+    - 0
+    - 19198
+    - 200
+    - 21248
+  - routing_layer: Metal2
+    top_level:
+    - 69800
+    - 423828
+    - 70000
+    - 425878
+    extended_top_level:
+    - 70000
+    - 423828
+    - 70200
+    - 425878
+    translated_user:
+    - 0
+    - 16828
+    - 200
+    - 18878
+  - routing_layer: Metal2
+    top_level:
+    - 69800
+    - 421122
+    - 70000
+    - 423172
+    extended_top_level:
+    - 70000
+    - 421122
+    - 70200
+    - 423172
+    translated_user:
+    - 0
+    - 14122
+    - 200
+    - 16172
+  - routing_layer: Metal2
+    top_level:
+    - 69800
+    - 418752
+    - 70000
+    - 420802
+    extended_top_level:
+    - 70000
+    - 418752
+    - 70200
+    - 420802
+    translated_user:
+    - 0
+    - 11752
+    - 200
+    - 13802
+  - routing_layer: Metal2
+    top_level:
+    - 69800
+    - 416272
+    - 70000
+    - 418172
+    extended_top_level:
+    - 70000
+    - 416272
+    - 70200
+    - 418172
+    translated_user:
+    - 0
+    - 9272
+    - 200
+    - 11172
+- user_pin_name: clk
+  default_project_pin: clk_PU
+  project_pin: clk_PU
+  cell_terminal: PU
+  padring_instance: W19
+  physical_pad_slot: W19
+  cell: gf180mcu_fd_io__in_s
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 66054
+    - 449731
+    - 70000
+    - 449807
+    extended_top_level:
+    - 70000
+    - 449731
+    - 70200
+    - 449807
+    translated_user:
+    - 0
+    - 42731
+    - 200
+    - 42807
+- user_pin_name: clk
+  default_project_pin: clk_PD
+  project_pin: clk_PD
+  cell_terminal: PD
+  padring_instance: W19
+  physical_pad_slot: W19
+  cell: gf180mcu_fd_io__in_s
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 65990
+    - 448858
+    - 70000
+    - 448934
+    extended_top_level:
+    - 70000
+    - 448858
+    - 70200
+    - 448934
+    translated_user:
+    - 0
+    - 41858
+    - 200
+    - 41934
+- user_pin_name: clk
+  default_project_pin: clk
+  project_pin: clk
+  cell_terminal: Y
+  padring_instance: W19
+  physical_pad_slot: W19
+  cell: gf180mcu_fd_io__in_s
+  direction: INPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 63950
+    - 436752
+    - 70000
+    - 436828
+    extended_top_level:
+    - 70000
+    - 436752
+    - 70200
+    - 436828
+    translated_user:
+    - 0
+    - 29752
+    - 200
+    - 29828
+- user_pin_name: rst_n
+  default_project_pin: rst_n_PU
+  project_pin: rst_n_PU
+  cell_terminal: PU
+  padring_instance: W20
+  physical_pad_slot: W20
+  cell: gf180mcu_fd_io__in_c
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 66054
+    - 469731
+    - 70000
+    - 469807
+    extended_top_level:
+    - 70000
+    - 469731
+    - 70200
+    - 469807
+    translated_user:
+    - 0
+    - 62731
+    - 200
+    - 62807
+- user_pin_name: rst_n
+  default_project_pin: rst_n_PD
+  project_pin: rst_n_PD
+  cell_terminal: PD
+  padring_instance: W20
+  physical_pad_slot: W20
+  cell: gf180mcu_fd_io__in_c
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 65990
+    - 468858
+    - 70000
+    - 468934
+    extended_top_level:
+    - 70000
+    - 468858
+    - 70200
+    - 468934
+    translated_user:
+    - 0
+    - 61858
+    - 200
+    - 61934
+- user_pin_name: rst_n
+  default_project_pin: rst_n
+  project_pin: rst_n
+  cell_terminal: Y
+  padring_instance: W20
+  physical_pad_slot: W20
+  cell: gf180mcu_fd_io__in_c
+  direction: INPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 63950
+    - 456752
+    - 70000
+    - 456828
+    extended_top_level:
+    - 70000
+    - 456752
+    - 70200
+    - 456828
+    translated_user:
+    - 0
+    - 49752
+    - 200
+    - 49828
+- user_pin_name: spi_sclk
+  default_project_pin: spi_sclk_PU
+  project_pin: spi_sclk_PU
+  cell_terminal: PU
+  padring_instance: W21
+  physical_pad_slot: W21
+  cell: gf180mcu_fd_io__in_c
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 66054
+    - 489731
+    - 70000
+    - 489807
+    extended_top_level:
+    - 70000
+    - 489731
+    - 70200
+    - 489807
+    translated_user:
+    - 0
+    - 82731
+    - 200
+    - 82807
+- user_pin_name: spi_sclk
+  default_project_pin: spi_sclk_PD
+  project_pin: spi_sclk_PD
+  cell_terminal: PD
+  padring_instance: W21
+  physical_pad_slot: W21
+  cell: gf180mcu_fd_io__in_c
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 65990
+    - 488858
+    - 70000
+    - 488934
+    extended_top_level:
+    - 70000
+    - 488858
+    - 70200
+    - 488934
+    translated_user:
+    - 0
+    - 81858
+    - 200
+    - 81934
+- user_pin_name: spi_sclk
+  default_project_pin: spi_sclk
+  project_pin: spi_sclk
+  cell_terminal: Y
+  padring_instance: W21
+  physical_pad_slot: W21
+  cell: gf180mcu_fd_io__in_c
+  direction: INPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 63950
+    - 476752
+    - 70000
+    - 476828
+    extended_top_level:
+    - 70000
+    - 476752
+    - 70200
+    - 476828
+    translated_user:
+    - 0
+    - 69752
+    - 200
+    - 69828
+- user_pin_name: spi_cs_n
+  default_project_pin: spi_cs_n_PU
+  project_pin: spi_cs_n_PU
+  cell_terminal: PU
+  padring_instance: W22
+  physical_pad_slot: W22
+  cell: gf180mcu_fd_io__in_c
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 66054
+    - 509731
+    - 70000
+    - 509807
+    extended_top_level:
+    - 70000
+    - 509731
+    - 70200
+    - 509807
+    translated_user:
+    - 0
+    - 102731
+    - 200
+    - 102807
+- user_pin_name: spi_cs_n
+  default_project_pin: spi_cs_n_PD
+  project_pin: spi_cs_n_PD
+  cell_terminal: PD
+  padring_instance: W22
+  physical_pad_slot: W22
+  cell: gf180mcu_fd_io__in_c
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 65990
+    - 508858
+    - 70000
+    - 508934
+    extended_top_level:
+    - 70000
+    - 508858
+    - 70200
+    - 508934
+    translated_user:
+    - 0
+    - 101858
+    - 200
+    - 101934
+- user_pin_name: spi_cs_n
+  default_project_pin: spi_cs_n
+  project_pin: spi_cs_n
+  cell_terminal: Y
+  padring_instance: W22
+  physical_pad_slot: W22
+  cell: gf180mcu_fd_io__in_c
+  direction: INPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 63950
+    - 496752
+    - 70000
+    - 496828
+    extended_top_level:
+    - 70000
+    - 496752
+    - 70200
+    - 496828
+    translated_user:
+    - 0
+    - 89752
+    - 200
+    - 89828
+- user_pin_name: spi_mosi
+  default_project_pin: spi_mosi_PU
+  project_pin: spi_mosi_PU
+  cell_terminal: PU
+  padring_instance: N01
+  physical_pad_slot: N01
+  cell: gf180mcu_fd_io__in_c
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 89731
+    - 517000
+    - 89807
+    - 520946
+    extended_top_level:
+    - 89731
+    - 516800
+    - 89807
+    - 517000
+    translated_user:
+    - 19731
+    - 109800
+    - 19807
+    - 110000
+- user_pin_name: spi_mosi
+  default_project_pin: spi_mosi_PD
+  project_pin: spi_mosi_PD
+  cell_terminal: PD
+  padring_instance: N01
+  physical_pad_slot: N01
+  cell: gf180mcu_fd_io__in_c
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 88858
+    - 517000
+    - 88934
+    - 521010
+    extended_top_level:
+    - 88858
+    - 516800
+    - 88934
+    - 517000
+    translated_user:
+    - 18858
+    - 109800
+    - 18934
+    - 110000
+- user_pin_name: spi_mosi
+  default_project_pin: spi_mosi
+  project_pin: spi_mosi
+  cell_terminal: Y
+  padring_instance: N01
+  physical_pad_slot: N01
+  cell: gf180mcu_fd_io__in_c
+  direction: INPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 76752
+    - 517000
+    - 76828
+    - 523050
+    extended_top_level:
+    - 76752
+    - 516800
+    - 76828
+    - 517000
+    translated_user:
+    - 6752
+    - 109800
+    - 6828
+    - 110000
+- user_pin_name: spi_miso
+  default_project_pin: spi_miso_CS
+  project_pin: spi_miso_CS
+  cell_terminal: CS
+  padring_instance: N02
+  physical_pad_slot: N02
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 110252
+    - 517000
+    - 110328
+    - 521291
+    extended_top_level:
+    - 110252
+    - 516800
+    - 110328
+    - 517000
+    translated_user:
+    - 40252
+    - 109800
+    - 40328
+    - 110000
+- user_pin_name: spi_miso
+  default_project_pin: spi_miso_SL
+  project_pin: spi_miso_SL
+  cell_terminal: SL
+  padring_instance: N02
+  physical_pad_slot: N02
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 97190
+    - 517000
+    - 97266
+    - 533972
+    extended_top_level:
+    - 97190
+    - 516800
+    - 97266
+    - 517000
+    translated_user:
+    - 27190
+    - 109800
+    - 27266
+    - 110000
+- user_pin_name: spi_miso
+  default_project_pin: spi_miso_IE
+  project_pin: spi_miso_IE
+  cell_terminal: IE
+  padring_instance: N02
+  physical_pad_slot: N02
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 108647
+    - 517000
+    - 108723
+    - 520016
+    extended_top_level:
+    - 108647
+    - 516800
+    - 108723
+    - 517000
+    translated_user:
+    - 38647
+    - 109800
+    - 38723
+    - 110000
+- user_pin_name: spi_miso
+  default_project_pin: spi_miso_OE
+  project_pin: spi_miso_OE
+  cell_terminal: OE
+  padring_instance: N02
+  physical_pad_slot: N02
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 96898
+    - 517000
+    - 96974
+    - 533732
+    extended_top_level:
+    - 96898
+    - 516800
+    - 96974
+    - 517000
+    translated_user:
+    - 26898
+    - 109800
+    - 26974
+    - 110000
+- user_pin_name: spi_miso
+  default_project_pin: spi_miso_PU
+  project_pin: spi_miso_PU
+  cell_terminal: PU
+  padring_instance: N02
+  physical_pad_slot: N02
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 109731
+    - 517000
+    - 109807
+    - 520916
+    extended_top_level:
+    - 109731
+    - 516800
+    - 109807
+    - 517000
+    translated_user:
+    - 39731
+    - 109800
+    - 39807
+    - 110000
+- user_pin_name: spi_miso
+  default_project_pin: spi_miso_PD
+  project_pin: spi_miso_PD
+  cell_terminal: PD
+  padring_instance: N02
+  physical_pad_slot: N02
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 108858
+    - 517000
+    - 108934
+    - 520980
+    extended_top_level:
+    - 108858
+    - 516800
+    - 108934
+    - 517000
+    translated_user:
+    - 38858
+    - 109800
+    - 38934
+    - 110000
+- user_pin_name: spi_miso
+  default_project_pin: spi_miso_OUT
+  project_pin: spi_miso_OUT
+  cell_terminal: A
+  padring_instance: N02
+  physical_pad_slot: N02
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 97044
+    - 517000
+    - 97120
+    - 534108
+    extended_top_level:
+    - 97044
+    - 516800
+    - 97120
+    - 517000
+    translated_user:
+    - 27044
+    - 109800
+    - 27120
+    - 110000
+- user_pin_name: spi_miso
+  default_project_pin: spi_miso_PDRV0
+  project_pin: spi_miso_PDRV0
+  cell_terminal: PDRV0
+  padring_instance: N02
+  physical_pad_slot: N02
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 109502
+    - 517000
+    - 109578
+    - 534067
+    extended_top_level:
+    - 109502
+    - 516800
+    - 109578
+    - 517000
+    translated_user:
+    - 39502
+    - 109800
+    - 39578
+    - 110000
+- user_pin_name: spi_miso
+  default_project_pin: spi_miso_PDRV1
+  project_pin: spi_miso_PDRV1
+  cell_terminal: PDRV1
+  padring_instance: N02
+  physical_pad_slot: N02
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 109360
+    - 517000
+    - 109436
+    - 534002
+    extended_top_level:
+    - 109360
+    - 516800
+    - 109436
+    - 517000
+    translated_user:
+    - 39360
+    - 109800
+    - 39436
+    - 110000
+- user_pin_name: spi_miso
+  default_project_pin: spi_miso_IN
+  project_pin: spi_miso_IN
+  cell_terminal: Y
+  padring_instance: N02
+  physical_pad_slot: N02
+  cell: gf180mcu_fd_io__bi_t
+  direction: INPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 96752
+    - 517000
+    - 96828
+    - 523020
+    extended_top_level:
+    - 96752
+    - 516800
+    - 96828
+    - 517000
+    translated_user:
+    - 26752
+    - 109800
+    - 26828
+    - 110000
+- user_pin_name: obs0
+  default_project_pin: obs0_CS
+  project_pin: obs0_CS
+  cell_terminal: CS
+  padring_instance: N03
+  physical_pad_slot: N03
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 130252
+    - 517000
+    - 130328
+    - 521291
+    extended_top_level:
+    - 130252
+    - 516800
+    - 130328
+    - 517000
+    translated_user:
+    - 60252
+    - 109800
+    - 60328
+    - 110000
+- user_pin_name: obs0
+  default_project_pin: obs0_SL
+  project_pin: obs0_SL
+  cell_terminal: SL
+  padring_instance: N03
+  physical_pad_slot: N03
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 117190
+    - 517000
+    - 117266
+    - 533972
+    extended_top_level:
+    - 117190
+    - 516800
+    - 117266
+    - 517000
+    translated_user:
+    - 47190
+    - 109800
+    - 47266
+    - 110000
+- user_pin_name: obs0
+  default_project_pin: obs0_IE
+  project_pin: obs0_IE
+  cell_terminal: IE
+  padring_instance: N03
+  physical_pad_slot: N03
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 128647
+    - 517000
+    - 128723
+    - 520016
+    extended_top_level:
+    - 128647
+    - 516800
+    - 128723
+    - 517000
+    translated_user:
+    - 58647
+    - 109800
+    - 58723
+    - 110000
+- user_pin_name: obs0
+  default_project_pin: obs0_OE
+  project_pin: obs0_OE
+  cell_terminal: OE
+  padring_instance: N03
+  physical_pad_slot: N03
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 116898
+    - 517000
+    - 116974
+    - 533732
+    extended_top_level:
+    - 116898
+    - 516800
+    - 116974
+    - 517000
+    translated_user:
+    - 46898
+    - 109800
+    - 46974
+    - 110000
+- user_pin_name: obs0
+  default_project_pin: obs0_PU
+  project_pin: obs0_PU
+  cell_terminal: PU
+  padring_instance: N03
+  physical_pad_slot: N03
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 129731
+    - 517000
+    - 129807
+    - 520916
+    extended_top_level:
+    - 129731
+    - 516800
+    - 129807
+    - 517000
+    translated_user:
+    - 59731
+    - 109800
+    - 59807
+    - 110000
+- user_pin_name: obs0
+  default_project_pin: obs0_PD
+  project_pin: obs0_PD
+  cell_terminal: PD
+  padring_instance: N03
+  physical_pad_slot: N03
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 128858
+    - 517000
+    - 128934
+    - 520980
+    extended_top_level:
+    - 128858
+    - 516800
+    - 128934
+    - 517000
+    translated_user:
+    - 58858
+    - 109800
+    - 58934
+    - 110000
+- user_pin_name: obs0
+  default_project_pin: obs0_OUT
+  project_pin: obs0_OUT
+  cell_terminal: A
+  padring_instance: N03
+  physical_pad_slot: N03
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 117044
+    - 517000
+    - 117120
+    - 534108
+    extended_top_level:
+    - 117044
+    - 516800
+    - 117120
+    - 517000
+    translated_user:
+    - 47044
+    - 109800
+    - 47120
+    - 110000
+- user_pin_name: obs0
+  default_project_pin: obs0_PDRV0
+  project_pin: obs0_PDRV0
+  cell_terminal: PDRV0
+  padring_instance: N03
+  physical_pad_slot: N03
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 129502
+    - 517000
+    - 129578
+    - 534067
+    extended_top_level:
+    - 129502
+    - 516800
+    - 129578
+    - 517000
+    translated_user:
+    - 59502
+    - 109800
+    - 59578
+    - 110000
+- user_pin_name: obs0
+  default_project_pin: obs0_PDRV1
+  project_pin: obs0_PDRV1
+  cell_terminal: PDRV1
+  padring_instance: N03
+  physical_pad_slot: N03
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 129360
+    - 517000
+    - 129436
+    - 534002
+    extended_top_level:
+    - 129360
+    - 516800
+    - 129436
+    - 517000
+    translated_user:
+    - 59360
+    - 109800
+    - 59436
+    - 110000
+- user_pin_name: obs0
+  default_project_pin: obs0_IN
+  project_pin: obs0_IN
+  cell_terminal: Y
+  padring_instance: N03
+  physical_pad_slot: N03
+  cell: gf180mcu_fd_io__bi_t
+  direction: INPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 116752
+    - 517000
+    - 116828
+    - 523020
+    extended_top_level:
+    - 116752
+    - 516800
+    - 116828
+    - 517000
+    translated_user:
+    - 46752
+    - 109800
+    - 46828
+    - 110000
+- user_pin_name: obs1
+  default_project_pin: obs1_CS
+  project_pin: obs1_CS
+  cell_terminal: CS
+  padring_instance: N04
+  physical_pad_slot: N04
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 150252
+    - 517000
+    - 150328
+    - 521291
+    extended_top_level:
+    - 150252
+    - 516800
+    - 150328
+    - 517000
+    translated_user:
+    - 80252
+    - 109800
+    - 80328
+    - 110000
+- user_pin_name: obs1
+  default_project_pin: obs1_SL
+  project_pin: obs1_SL
+  cell_terminal: SL
+  padring_instance: N04
+  physical_pad_slot: N04
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 137190
+    - 517000
+    - 137266
+    - 533972
+    extended_top_level:
+    - 137190
+    - 516800
+    - 137266
+    - 517000
+    translated_user:
+    - 67190
+    - 109800
+    - 67266
+    - 110000
+- user_pin_name: obs1
+  default_project_pin: obs1_IE
+  project_pin: obs1_IE
+  cell_terminal: IE
+  padring_instance: N04
+  physical_pad_slot: N04
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 148647
+    - 517000
+    - 148723
+    - 520016
+    extended_top_level:
+    - 148647
+    - 516800
+    - 148723
+    - 517000
+    translated_user:
+    - 78647
+    - 109800
+    - 78723
+    - 110000
+- user_pin_name: obs1
+  default_project_pin: obs1_OE
+  project_pin: obs1_OE
+  cell_terminal: OE
+  padring_instance: N04
+  physical_pad_slot: N04
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 136898
+    - 517000
+    - 136974
+    - 533732
+    extended_top_level:
+    - 136898
+    - 516800
+    - 136974
+    - 517000
+    translated_user:
+    - 66898
+    - 109800
+    - 66974
+    - 110000
+- user_pin_name: obs1
+  default_project_pin: obs1_PU
+  project_pin: obs1_PU
+  cell_terminal: PU
+  padring_instance: N04
+  physical_pad_slot: N04
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 149731
+    - 517000
+    - 149807
+    - 520916
+    extended_top_level:
+    - 149731
+    - 516800
+    - 149807
+    - 517000
+    translated_user:
+    - 79731
+    - 109800
+    - 79807
+    - 110000
+- user_pin_name: obs1
+  default_project_pin: obs1_PD
+  project_pin: obs1_PD
+  cell_terminal: PD
+  padring_instance: N04
+  physical_pad_slot: N04
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 148858
+    - 517000
+    - 148934
+    - 520980
+    extended_top_level:
+    - 148858
+    - 516800
+    - 148934
+    - 517000
+    translated_user:
+    - 78858
+    - 109800
+    - 78934
+    - 110000
+- user_pin_name: obs1
+  default_project_pin: obs1_OUT
+  project_pin: obs1_OUT
+  cell_terminal: A
+  padring_instance: N04
+  physical_pad_slot: N04
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 137044
+    - 517000
+    - 137120
+    - 534108
+    extended_top_level:
+    - 137044
+    - 516800
+    - 137120
+    - 517000
+    translated_user:
+    - 67044
+    - 109800
+    - 67120
+    - 110000
+- user_pin_name: obs1
+  default_project_pin: obs1_PDRV0
+  project_pin: obs1_PDRV0
+  cell_terminal: PDRV0
+  padring_instance: N04
+  physical_pad_slot: N04
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 149502
+    - 517000
+    - 149578
+    - 534067
+    extended_top_level:
+    - 149502
+    - 516800
+    - 149578
+    - 517000
+    translated_user:
+    - 79502
+    - 109800
+    - 79578
+    - 110000
+- user_pin_name: obs1
+  default_project_pin: obs1_PDRV1
+  project_pin: obs1_PDRV1
+  cell_terminal: PDRV1
+  padring_instance: N04
+  physical_pad_slot: N04
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 149360
+    - 517000
+    - 149436
+    - 534002
+    extended_top_level:
+    - 149360
+    - 516800
+    - 149436
+    - 517000
+    translated_user:
+    - 79360
+    - 109800
+    - 79436
+    - 110000
+- user_pin_name: obs1
+  default_project_pin: obs1_IN
+  project_pin: obs1_IN
+  cell_terminal: Y
+  padring_instance: N04
+  physical_pad_slot: N04
+  cell: gf180mcu_fd_io__bi_t
+  direction: INPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 136752
+    - 517000
+    - 136828
+    - 523020
+    extended_top_level:
+    - 136752
+    - 516800
+    - 136828
+    - 517000
+    translated_user:
+    - 66752
+    - 109800
+    - 66828
+    - 110000
+- user_pin_name: obs2
+  default_project_pin: obs2_CS
+  project_pin: obs2_CS
+  cell_terminal: CS
+  padring_instance: N05
+  physical_pad_slot: N05
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 170252
+    - 517000
+    - 170328
+    - 521291
+    extended_top_level:
+    - 170252
+    - 516800
+    - 170328
+    - 517000
+    translated_user:
+    - 100252
+    - 109800
+    - 100328
+    - 110000
+- user_pin_name: obs2
+  default_project_pin: obs2_SL
+  project_pin: obs2_SL
+  cell_terminal: SL
+  padring_instance: N05
+  physical_pad_slot: N05
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 157190
+    - 517000
+    - 157266
+    - 533972
+    extended_top_level:
+    - 157190
+    - 516800
+    - 157266
+    - 517000
+    translated_user:
+    - 87190
+    - 109800
+    - 87266
+    - 110000
+- user_pin_name: obs2
+  default_project_pin: obs2_IE
+  project_pin: obs2_IE
+  cell_terminal: IE
+  padring_instance: N05
+  physical_pad_slot: N05
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 168647
+    - 517000
+    - 168723
+    - 520016
+    extended_top_level:
+    - 168647
+    - 516800
+    - 168723
+    - 517000
+    translated_user:
+    - 98647
+    - 109800
+    - 98723
+    - 110000
+- user_pin_name: obs2
+  default_project_pin: obs2_OE
+  project_pin: obs2_OE
+  cell_terminal: OE
+  padring_instance: N05
+  physical_pad_slot: N05
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 156898
+    - 517000
+    - 156974
+    - 533732
+    extended_top_level:
+    - 156898
+    - 516800
+    - 156974
+    - 517000
+    translated_user:
+    - 86898
+    - 109800
+    - 86974
+    - 110000
+- user_pin_name: obs2
+  default_project_pin: obs2_PU
+  project_pin: obs2_PU
+  cell_terminal: PU
+  padring_instance: N05
+  physical_pad_slot: N05
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 169731
+    - 517000
+    - 169807
+    - 520916
+    extended_top_level:
+    - 169731
+    - 516800
+    - 169807
+    - 517000
+    translated_user:
+    - 99731
+    - 109800
+    - 99807
+    - 110000
+- user_pin_name: obs2
+  default_project_pin: obs2_PD
+  project_pin: obs2_PD
+  cell_terminal: PD
+  padring_instance: N05
+  physical_pad_slot: N05
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 168858
+    - 517000
+    - 168934
+    - 520980
+    extended_top_level:
+    - 168858
+    - 516800
+    - 168934
+    - 517000
+    translated_user:
+    - 98858
+    - 109800
+    - 98934
+    - 110000
+- user_pin_name: obs2
+  default_project_pin: obs2_OUT
+  project_pin: obs2_OUT
+  cell_terminal: A
+  padring_instance: N05
+  physical_pad_slot: N05
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 157044
+    - 517000
+    - 157120
+    - 534108
+    extended_top_level:
+    - 157044
+    - 516800
+    - 157120
+    - 517000
+    translated_user:
+    - 87044
+    - 109800
+    - 87120
+    - 110000
+- user_pin_name: obs2
+  default_project_pin: obs2_PDRV0
+  project_pin: obs2_PDRV0
+  cell_terminal: PDRV0
+  padring_instance: N05
+  physical_pad_slot: N05
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 169502
+    - 517000
+    - 169578
+    - 534067
+    extended_top_level:
+    - 169502
+    - 516800
+    - 169578
+    - 517000
+    translated_user:
+    - 99502
+    - 109800
+    - 99578
+    - 110000
+- user_pin_name: obs2
+  default_project_pin: obs2_PDRV1
+  project_pin: obs2_PDRV1
+  cell_terminal: PDRV1
+  padring_instance: N05
+  physical_pad_slot: N05
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 169360
+    - 517000
+    - 169436
+    - 534002
+    extended_top_level:
+    - 169360
+    - 516800
+    - 169436
+    - 517000
+    translated_user:
+    - 99360
+    - 109800
+    - 99436
+    - 110000
+- user_pin_name: obs2
+  default_project_pin: obs2_IN
+  project_pin: obs2_IN
+  cell_terminal: Y
+  padring_instance: N05
+  physical_pad_slot: N05
+  cell: gf180mcu_fd_io__bi_t
+  direction: INPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 156752
+    - 517000
+    - 156828
+    - 523020
+    extended_top_level:
+    - 156752
+    - 516800
+    - 156828
+    - 517000
+    translated_user:
+    - 86752
+    - 109800
+    - 86828
+    - 110000
+- user_pin_name: obs3
+  default_project_pin: obs3_CS
+  project_pin: obs3_CS
+  cell_terminal: CS
+  padring_instance: N06
+  physical_pad_slot: N06
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 190252
+    - 517000
+    - 190328
+    - 521291
+    extended_top_level:
+    - 190252
+    - 516800
+    - 190328
+    - 517000
+    translated_user:
+    - 120252
+    - 109800
+    - 120328
+    - 110000
+- user_pin_name: obs3
+  default_project_pin: obs3_SL
+  project_pin: obs3_SL
+  cell_terminal: SL
+  padring_instance: N06
+  physical_pad_slot: N06
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 177190
+    - 517000
+    - 177266
+    - 533972
+    extended_top_level:
+    - 177190
+    - 516800
+    - 177266
+    - 517000
+    translated_user:
+    - 107190
+    - 109800
+    - 107266
+    - 110000
+- user_pin_name: obs3
+  default_project_pin: obs3_IE
+  project_pin: obs3_IE
+  cell_terminal: IE
+  padring_instance: N06
+  physical_pad_slot: N06
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 188647
+    - 517000
+    - 188723
+    - 520016
+    extended_top_level:
+    - 188647
+    - 516800
+    - 188723
+    - 517000
+    translated_user:
+    - 118647
+    - 109800
+    - 118723
+    - 110000
+- user_pin_name: obs3
+  default_project_pin: obs3_OE
+  project_pin: obs3_OE
+  cell_terminal: OE
+  padring_instance: N06
+  physical_pad_slot: N06
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 176898
+    - 517000
+    - 176974
+    - 533732
+    extended_top_level:
+    - 176898
+    - 516800
+    - 176974
+    - 517000
+    translated_user:
+    - 106898
+    - 109800
+    - 106974
+    - 110000
+- user_pin_name: obs3
+  default_project_pin: obs3_PU
+  project_pin: obs3_PU
+  cell_terminal: PU
+  padring_instance: N06
+  physical_pad_slot: N06
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 189731
+    - 517000
+    - 189807
+    - 520916
+    extended_top_level:
+    - 189731
+    - 516800
+    - 189807
+    - 517000
+    translated_user:
+    - 119731
+    - 109800
+    - 119807
+    - 110000
+- user_pin_name: obs3
+  default_project_pin: obs3_PD
+  project_pin: obs3_PD
+  cell_terminal: PD
+  padring_instance: N06
+  physical_pad_slot: N06
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 188858
+    - 517000
+    - 188934
+    - 520980
+    extended_top_level:
+    - 188858
+    - 516800
+    - 188934
+    - 517000
+    translated_user:
+    - 118858
+    - 109800
+    - 118934
+    - 110000
+- user_pin_name: obs3
+  default_project_pin: obs3_OUT
+  project_pin: obs3_OUT
+  cell_terminal: A
+  padring_instance: N06
+  physical_pad_slot: N06
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 177044
+    - 517000
+    - 177120
+    - 534108
+    extended_top_level:
+    - 177044
+    - 516800
+    - 177120
+    - 517000
+    translated_user:
+    - 107044
+    - 109800
+    - 107120
+    - 110000
+- user_pin_name: obs3
+  default_project_pin: obs3_PDRV0
+  project_pin: obs3_PDRV0
+  cell_terminal: PDRV0
+  padring_instance: N06
+  physical_pad_slot: N06
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 189502
+    - 517000
+    - 189578
+    - 534067
+    extended_top_level:
+    - 189502
+    - 516800
+    - 189578
+    - 517000
+    translated_user:
+    - 119502
+    - 109800
+    - 119578
+    - 110000
+- user_pin_name: obs3
+  default_project_pin: obs3_PDRV1
+  project_pin: obs3_PDRV1
+  cell_terminal: PDRV1
+  padring_instance: N06
+  physical_pad_slot: N06
+  cell: gf180mcu_fd_io__bi_t
+  direction: OUTPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 189360
+    - 517000
+    - 189436
+    - 534002
+    extended_top_level:
+    - 189360
+    - 516800
+    - 189436
+    - 517000
+    translated_user:
+    - 119360
+    - 109800
+    - 119436
+    - 110000
+- user_pin_name: obs3
+  default_project_pin: obs3_IN
+  project_pin: obs3_IN
+  cell_terminal: Y
+  padring_instance: N06
+  physical_pad_slot: N06
+  cell: gf180mcu_fd_io__bi_t
+  direction: INPUT
+  use: SIGNAL
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 176752
+    - 517000
+    - 176828
+    - 523020
+    extended_top_level:
+    - 176752
+    - 516800
+    - 176828
+    - 517000
+    translated_user:
+    - 106752
+    - 109800
+    - 106828
+    - 110000
+- user_pin_name: VDD
+  default_project_pin: VDD
+  project_pin: VDD
+  cell_terminal: DVDD
+  padring_instance: N07
+  physical_pad_slot: N07
+  cell: gf180mcu_fd_io__dvdd
+  direction: INOUT
+  use: POWER
+  rectangles:
+  - routing_layer: Metal2
+    top_level:
+    - 208828
+    - 517000
+    - 210728
+    - 517931
+    extended_top_level:
+    - 208828
+    - 516800
+    - 210728
+    - 517000
+    translated_user:
+    - 138828
+    - 109800
+    - 140728
+    - 110000
+  - routing_layer: Metal2
+    top_level:
+    - 206198
+    - 517000
+    - 208248
+    - 517931
+    extended_top_level:
+    - 206198
+    - 516800
+    - 208248
+    - 517000
+    translated_user:
+    - 136198
+    - 109800
+    - 138248
+    - 110000
+  - routing_layer: Metal2
+    top_level:
+    - 203828
+    - 517000
+    - 205878
+    - 517931
+    extended_top_level:
+    - 203828
+    - 516800
+    - 205878
+    - 517000
+    translated_user:
+    - 133828
+    - 109800
+    - 135878
+    - 110000
+  - routing_layer: Metal2
+    top_level:
+    - 201122
+    - 517000
+    - 203172
+    - 517931
+    extended_top_level:
+    - 201122
+    - 516800
+    - 203172
+    - 517000
+    translated_user:
+    - 131122
+    - 109800
+    - 133172
+    - 110000
+  - routing_layer: Metal2
+    top_level:
+    - 198752
+    - 517000
+    - 200802
+    - 517931
+    extended_top_level:
+    - 198752
+    - 516800
+    - 200802
+    - 517000
+    translated_user:
+    - 128752
+    - 109800
+    - 130802
+    - 110000
+  - routing_layer: Metal2
+    top_level:
+    - 196272
+    - 517000
+    - 198172
+    - 517931
+    extended_top_level:
+    - 196272
+    - 516800
+    - 198172
+    - 517000
+    translated_user:
+    - 126272
+    - 109800
+    - 128172
+    - 110000
+project_gds_size:
+  source_gds: /Users/kanobailey/chipathon/2026/gds/A71/lambda_kv_coproc.gds
+  top_cell: lambda_kv_coproc
+  layer: 0
+  datatype: 0
+  layout_dbu_microns: 0.001
+  rectangle_dbu:
+  - 0
+  - 0
+  - 502890
+  - 520810
+  width_microns: '502.89'
+  height_microns: '520.81'
+  top_cell_text:
+  - text: VDD
+    layer: 46
+    datatype: 10
+  - text: VDD
+    layer: 46
+    datatype: 10
+  - text: VDD
+    layer: 46
+    datatype: 10
+  - text: VDD
+    layer: 46
+    datatype: 10
+  - text: VSS
+    layer: 46
+    datatype: 10
+  - text: VSS
+    layer: 46
+    datatype: 10
+  - text: VSS
+    layer: 46
+    datatype: 10
+  - text: VSS
+    layer: 46
+    datatype: 10
+  - text: clk
+    layer: 42
+    datatype: 10
+  - text: obs3
+    layer: 42
+    datatype: 10
+  - text: spi_mosi
+    layer: 42
+    datatype: 10
+  - text: obs0
+    layer: 36
+    datatype: 10
+  - text: obs1
+    layer: 36
+    datatype: 10
+  - text: obs2
+    layer: 36
+    datatype: 10
+  - text: rst_n
+    layer: 36
+    datatype: 10
+  - text: spi_cs_n
+    layer: 36
+    datatype: 10
+  - text: spi_miso
+    layer: 36
+    datatype: 10
+  - text: spi_sclk
+    layer: 36
+    datatype: 10
+participant_pin_count: 12

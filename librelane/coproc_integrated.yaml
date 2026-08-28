@@ -41,13 +41,22 @@ CLOCK_NET: clk
 CLOCK_PERIOD: 300     # ns — closes the ~285 ns combinational CQ-3 value path
 
 # --- Org padframe DEF: die area + pin placement are taken from this template. ---
-# TODO(DEF-day): replace the placeholder path with the delivered DEF.
-FP_DEF_TEMPLATE: dir::../def/PADFRAME_TEMPLATE.def
+# DELIVERED 2026-08-26 (variants BV + BH; see def/A71_selected_variants.json).
+# BV slot = 550 x 1110 um; our core (502.89 x 520.81 um) fits with margin. The
+# BV pad map matches info.yaml exactly (VSS pin1..VDD pin12, all io_types) — see
+# def/A71_BV/A71_BV_pad_map.yaml. Swap to def/A71_BH/A71_BH.def for the BH slot.
+#
+# NOTE: running this integrated harden as-is will NOT route cleanly — A71_BV.def
+# exposes the full gf180 pad core-side interface (67 pins: <pin>_IN/_OUT/_OE/_IE/
+# _CS/_SL/_PU/_PD/_PDRV0/_PDRV1 for bidir pads, <pin>+_PU/_PD for inputs), not the
+# scalar ports coproc_top currently has. A pad-adapter wrapper (drive _OE, tie off
+# _IN, set config bits) is required first. The org's scripted integration wires our
+# scalar-labeled core GDS into these pads on their side, so this trial is optional.
+FP_DEF_TEMPLATE: dir::../def/A71_BV/A71_BV.def
 FP_SIZING: absolute
 
-# Power nets — must match the DEF's power pin names. info.yaml declares VDD/VSS
-# (uppercase) and the core hardens with the gf180 default VDD/VSS labels, so the
-# padframe DEF power pins are VDD/VSS.
+# Power nets — CONFIRMED against the delivered DEF: VDD (pad N01, gf180 dvdd) and
+# VSS (pad W12, gf180 dvss), both uppercase, USE POWER/GROUND in A71_BV.def.
 VDD_NETS:
   - VDD
 GND_NETS:
