@@ -19,7 +19,7 @@ Track D (AI/LLM for circuits) · project: **Lambda KV-Cache Coprocessor (KVE + T
 - [x] CI green — `make sim-coproc` + `make coproc` reproduce on every push.
 - [x] Documentation: `docs/LLM_APPROACH.md` (Track D), `docs/VERIFICATION.md`,
       `docs/INTEGRATION.md`, `README.md`.
-- [x] Presentation slides (deck) — see the team's slide file / artifact.
+- [x] Presentation slides — `docs/Longhorn_Silicon_Chipathon2026.pdf` (+ `.html`).
 
 ## Requires a human (Chaithu) — cannot be done from the repo
 
@@ -34,7 +34,7 @@ Track D (AI/LLM for circuits) · project: **Lambda KV-Cache Coprocessor (KVE + T
       members fork the lead's repo (per `REGISTERING.md`).
 - [ ] **Abbreviated proposal slides (max 2 min)** uploaded to the org Google Drive
       folder. (The full deck exists; a 2-minute cut can be prepared on request.)
-- [ ] **Full author names / emails** — fill into `AUTHORS.md` (currently first names).
+- [x] **Author** — `AUTHORS.md` lists Chaithu Talasila.
 - [ ] **Demo video** — optional but recommended by the guidelines.
 
 ## Open questions to confirm with the org (Discord)

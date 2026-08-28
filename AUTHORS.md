@@ -8,13 +8,7 @@ All categories arranged alphabetically.
 
 ## Team A71 — Longhorn Silicon (SSCS Chipathon 2026, Track D)
 
-* Alan
-* Chaithu
-* Richard
-
-> TODO before final submission: replace the first names above with each member's
-> full name (and email/affiliation if desired). Left as first names because that is
-> all that was confirmed at authoring time.
+* Chaithu Talasila \<talasila.chaithu1@gmail.com\>
 
 ## Project template
 
