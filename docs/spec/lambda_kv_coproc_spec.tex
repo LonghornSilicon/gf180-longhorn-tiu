@@ -100,14 +100,14 @@ symbolic.
               minimum height=9mm,inner sep=4pt},
   w/.style={-{Latex[length=2mm]},gray!70,thick}]
   \node[box,minimum width=20mm] (spi) {\reg{spi\_loader}\\[-2pt]\scriptsize SPI slave};
-  \node[hot,minimum width=22mm,right=10mm of spi] (fsm) {compress-step\\FSM};
-  \node[box,minimum width=18mm,above right=2mm and 12mm of fsm] (kve) {KVE};
-  \node[box,minimum width=18mm,right=12mm of fsm] (tiu) {TIU};
-  \node[box,minimum width=18mm,below right=2mm and 12mm of fsm] (acu) {ACU};
+  \node[hot,minimum width=22mm,right=20mm of spi] (fsm) {compress-step\\FSM};
+  \node[box,minimum width=18mm,above right=2mm and 14mm of fsm] (kve) {KVE};
+  \node[box,minimum width=18mm,right=14mm of fsm] (tiu) {TIU};
+  \node[box,minimum width=18mm,below right=2mm and 14mm of fsm] (acu) {ACU};
   \node[left=8mm of spi,align=right,text=acc,font=\scriptsize] (p)
        {sclk\\cs\_n\\mosi\\miso};
   \draw[w] (p) -- (spi);
-  \draw[w] (spi) -- node[above,font=\scriptsize]{byte bus} (fsm);
+  \draw[w] (spi) -- node[above,font=\tiny,inner sep=1.5pt]{byte bus} (fsm);
   \draw[w] (fsm) -- (kve); \draw[w] (fsm) -- (tiu); \draw[w] (fsm) -- (acu);
 \end{tikzpicture}
 \end{center}
@@ -298,7 +298,7 @@ Enc & State & Action \\
   \draw[e] (i)--node[above]{start} (k);
   \draw[e] (k)--(l); \draw[e] (l)--(a); \draw[e] (a)--(v);
   \draw[e] (v)--(p); \draw[e] (p)--(pw); \draw[e] (pw)--(d);
-  \draw[e] (d) to[out=180,in=180] (i);
+  \draw[e,rounded corners=5pt] (d.south) -- ++(0,-4.5mm) -| (i.south);
 \end{tikzpicture}
 \end{center}
 
