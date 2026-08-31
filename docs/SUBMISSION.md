@@ -4,10 +4,18 @@ Track D (AI/LLM for circuits) · project: **Lambda KV-Cache Coprocessor (KVE + T
 
 ## Deadlines (from the org schedule)
 
-- **Aug 28, 2026 — "DRC Dry-run GDS to Channel Partner"** (Week 35: Verification &
-  Final Chip Review). Our DRC-clean GDS is ready.
-- **Final Submission (DRC-clean GDS to Channel Partner) — TBD** in the schedule;
-  watch Discord `#chipathon-announcements`.
+- Aug 28, 2026 — DRC dry-run GDS to channel partner + verification session. (Passed.)
+- **Sept 4, 2026 — Final Chip Review** (review session; upload the deck + attend).
+- **Sept 7, 2026 — FINAL SUBMISSION: DRC-clean GDS to channel partner.**
+
+## Handoff mechanism (CONFIRMED)
+
+The **final GDS is pulled automatically from this repo's `main` branch**, joined
+with the other projects into a combined project, and sent to the channel partner.
+There is no separate hand-off step — so the only requirement is that `main` holds
+the correct, final, DRC-clean GDS at the Sept 7 deadline. It does today
+(`gds/lambda_kv_coproc.gds`, verified byte-identical to the signoff-clean hardened
+output). **Keep `main` green and do not break the GDS/`info.yaml` before Sept 7.**
 
 ## Technical artifacts — DONE (on `main`)
 
@@ -39,13 +47,9 @@ Track D (AI/LLM for circuits) · project: **Lambda KV-Cache Coprocessor (KVE + T
 
 ## Open questions to confirm with the org (Discord)
 
-1. **Handoff mechanism** — is the DRC-dry-run/final GDS pulled from our repo
-   (`info.yaml` says "data pulled from the default branch"), or handed to the channel
-   partner separately? The delivered DEF implies the org already has our design.
-2. **Repo of record** — does our design live in `LonghornSilicon/gf180-longhorn-tiu`
-   (this repo), or must it be inside the forked padring repo?
-3. **Final submission date** — currently TBD in the schedule.
-4. **Which slot** — BV vs BH; the org selected both.
+1. ~~Handoff mechanism~~ — CONFIRMED: pulled from `main`, combined, sent to the
+   channel partner (see above). This repo is the repo of record.
+2. **Which slot** — BV vs BH; the org selected both. (Doesn't change our GDS.)
 
 ## Scoring (for emphasis)
 
