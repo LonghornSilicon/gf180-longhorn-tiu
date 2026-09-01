@@ -1,0 +1,13 @@
+$ make sim-coproc
+  iverilog -g2012 -s tb_coproc_spi -o sim_build/tb_coproc src/*.sv
+  vvp sim_build/tb_coproc
+
+  PASS  STATUS.done asserted
+  PASS  STATUS.err clear
+  PASS  TIU evict slot == 0 (argmin mass)
+  PASS  ACU gate fp16 == 0 (L=2 never peaky)
+  PASS  TIU keep bitmap == 0b10
+  PASS  KVE codes within INT3 range [-4,3]
+  PASS  KVE scale readback stable
+
+COPROC SPI FUNCTIONAL TEST: ALL CHECKS PASS

@@ -1,0 +1,16 @@
+$ make coproc          # LibreLane RTL-to-GDS, GF180MCU (condensed)
+  [ synthesis ]  7,080 std cells
+  [ floorplan ]  502.89 x 520.81 um  (0.262 mm2)
+  [ placement ]  utilization 62%
+  [ clock tree ] setup 0 / hold 0
+  [ routing    ] detailed route: 0 violations
+
+  ---- signoff ----
+  Magic DRC ........ 0
+  KLayout DRC ...... 0
+  Routing DRC ...... 0
+  LVS errors ....... 0
+  Antenna .......... 0
+  XOR diff ......... 0
+
+  Flow complete.  final_core/gds/lambda_kv_coproc.gds
