@@ -18,6 +18,11 @@ diearea_dbu:
 - 110000
 usable_area: 610500
 blockages: []
+metal2_blockages:
+- - 0
+  - 0
+  - 400
+  - 4200
 routing_blockage_layers:
 - Metal1
 - Metal2
