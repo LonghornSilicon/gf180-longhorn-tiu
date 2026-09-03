@@ -20,8 +20,6 @@
 //        wht_unit_syn.sv fp16_addsub_syn.sv cq_units_syn.sv \
 //        token_importance_unit.sv precision_controller.sv && vvp /tmp/tb
 
-// testing git push
-
 `timescale 1ns/1ps
 `default_nettype none
 
