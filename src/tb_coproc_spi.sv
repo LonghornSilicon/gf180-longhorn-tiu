@@ -20,6 +20,8 @@
 //        wht_unit_syn.sv fp16_addsub_syn.sv cq_units_syn.sv \
 //        token_importance_unit.sv precision_controller.sv && vvp /tmp/tb
 
+// testing git push
+
 `timescale 1ns/1ps
 `default_nettype none
 
@@ -128,6 +130,11 @@ module tb_coproc_spi;
     reg [8*32-1:0] wbuf, vbuf, rd;
     reg [7:0] status, decision, keepb, codeb;
     integer timeout;
+
+    initial begin
+        $dumpfile("sim_build/tb_coproc.vcd");
+        $dumpvars(0, tb_coproc_spi);
+    end
 
     initial begin
         // ---- reset ----

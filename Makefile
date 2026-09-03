@@ -165,6 +165,10 @@ sim-coproc: ## Run the self-checking SPI functional test (iverilog)
 	@grep -q "ALL CHECKS PASS" sim_build/coproc_sim.log || (echo "SPI functional test FAILED" && exit 1)
 .PHONY: sim-coproc
 
+sim-coproc-wave: ## open the spi dump
+	gtkwave sim_build/tb_coproc.vcd
+.PHONY: sim-coproc-wave
+
 coproc-integrated: clone-pdk ## Harden the coprocessor into the org padframe DEF (trial run)
 	librelane librelane/coproc_integrated.yaml ${LIBRELANE_OPTS} --save-views-to $(MAKEFILE_DIR)/final_integrated
 .PHONY: coproc-integrated
