@@ -130,6 +130,11 @@ module tb_coproc_spi;
     integer timeout;
 
     initial begin
+        $dumpfile("sim_build/tb_coproc.vcd");
+        $dumpvars(0, tb_coproc_spi);
+    end
+
+    initial begin
         // ---- reset ----
         rst_n = 1'b0; wclk(20); rst_n = 1'b1; wclk(20);
 
